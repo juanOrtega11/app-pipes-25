@@ -7,19 +7,19 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/basic-page/basic-page'),
   },
   {
-    path: 'custom',
-    title: 'Pipes Custom',
-    loadComponent: () => import('./pages/custom-page/custom-page'),
-  },
-  {
     path: 'default',
-    title: 'Pipes Básicos',
+    title: 'Numbers Pipe',
     loadComponent: () => import('./pages/default-page/default-page'),
   },
   {
     path: 'uncommon',
-    title: 'Pipes Básicos',
+    title: 'Pipes no tan comunes',
     loadComponent: () => import('./pages/uncommon-page/uncommon-page'),
+  },
+  {
+    path: 'custom',
+    title: 'Pipes personalizados',
+    loadComponent: () => import('./pages/custom-page/custom-page'),
   },
   {
     path: '**',

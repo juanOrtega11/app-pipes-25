@@ -12,13 +12,10 @@
   "private": true,
   "dependencies": {
     "@angular/common": "^20.0.0",
-    "@angular/compiler": "^20.0.0",
-    "@angular/core": "^20.0.0",
     "@angular/forms": "^20.0.0",
     "@angular/platform-browser": "^20.0.0",
     "@angular/platform-server": "^20.0.0",
     "@angular/router": "^20.0.0",
-    "@angular/ssr": "^20.0.3",
     "@tailwindcss/postcss": "^4.1.16",
     "daisyui": "^5.3.9",
     "express": "^5.1.0",
@@ -29,9 +26,12 @@
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "^20.3.7",
     "@angular/build": "^20.0.3",
-    "@angular/cli": "^20.0.3",
-    "@angular/compiler-cli": "^20.0.0",
+    "@angular/cli": "^20.3.7",
+    "@angular/compiler": "^20.3.7",
+    "@angular/compiler-cli": "^20.3.7",
+    "@angular/core": "^20.3.7",
     "@types/express": "^5.0.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^20.17.19",

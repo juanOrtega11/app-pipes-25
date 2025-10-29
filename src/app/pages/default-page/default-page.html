@@ -1,1 +1,24 @@
-<p>default-page works!</p>,
+<div class="stats shadow">
+  <div class="stat">
+    <div class="stat-title">Number</div>
+    <div class="stat-value">{{totalSells() | number: "1.2-2" }}</div>
+    <div class="stat-desc">{{totalSells()}}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Numbers: '1.1-2'</div>
+    <div class="stat-value">{{totalSells() + 1234 | number: "1.2-2" }}</div>
+    <div class="stat-desc">{{totalSells()}}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">Currency</div>
+    <div class="stat-value">{{totalSells() | currency: "MXN"}}</div>
+    <div class="stat-desc">{{totalSells()}}</div>
+  </div>
+  <div class="stat">
+    <div class="stat-title">Percent</div>
+    <div class="stat-value">{{percent() | percent: "1.2-2"}}</div>
+    <div class="stat-desc">{{percent()}}</div>
+  </div>
+</div>

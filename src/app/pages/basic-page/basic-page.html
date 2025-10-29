@@ -1,1 +1,58 @@
-<p>basic-page works!</p>,
+<section>
+  <h1>Pipes Básicos</h1>
+  <h3>incluidos en Angular</h3>
+</section>
+
+<div class="stats shadow">
+  <div class="stat">
+    <div class="stat-title">lowecase</div>
+    <div class="stat-value">{{lower() | lowercase}}</div>
+    <div class="stat-desc">{{lower()}}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">upper case</div>
+    <div class="stat-value">{{upper() | uppercase }}</div>
+    <div class="stat-desc">{{upper()}}</div>
+  </div>
+
+  <div class="stat">
+    <div class="stat-title">full name</div>
+    <div class="stat-value">{{full() | titlecase}}</div>
+    <div class="stat-desc">{{full()}}</div>
+  </div>
+</div>
+
+<div class="dvider"></div>
+<div class="stats stats-vertical lg:stats-horizontal shadow w-full">
+  <div class="stat">
+    <div class="stat-title">Date pipe</div>
+    <div class="stat-value">{{customDate() | date}}</div>
+    <div class="stat-desc">{{customDate()}}</div>
+  </div>
+</div>
+<div class="stats stats-vertical lg:stats-horizontal shadow w-full">
+  <div class="stat">
+    <div class="stat-title">Date |short | GTM-6</div>
+    <div class="stat-value">{{customDate() | date: "short": "GTM-6"}}</div>
+    <div class="stat-desc">{{customDate()}}</div>
+  </div>
+</div>
+<div class="stats stats-vertical lg:stats-horizontal shadow w-full">
+  <div class="stat">
+    <div class="stat-title">Date |short | GTM-6</div>
+    <div class="stat-value">
+      {{customDate() | date: "fullDate": " ''EEEE, MMMM d, y"}}
+    </div>
+    <div class="stat-desc">{{customDate()}}</div>
+  </div>
+</div>
+
+<div>
+  <h2 class="text-2xl font-bold">Locale Actual:</h2>
+  <span class="badge badge-secondary">ES </span>
+
+  <button class="btn btn-primary">Changer en français</button>
+  <button class="btn btn-primary">Changer to English</button>
+  <button class="btn btn-primary">Cambiar a español</button>
+</div>
