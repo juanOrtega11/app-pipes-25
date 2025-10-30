@@ -4,7 +4,8 @@ import {
   TitleCasePipe,
   UpperCasePipe,
 } from '@angular/common';
-import { Component, effect, signal } from '@angular/core';
+import { Component, effect, inject, signal } from '@angular/core';
+import { AvailableLocale, LocaleService } from '../../services/locale.service';
 
 @Component({
   selector: 'app-basic-page',
@@ -12,6 +13,9 @@ import { Component, effect, signal } from '@angular/core';
   templateUrl: './basic-page.html',
 })
 export default class BasicPage {
+  localeService = inject(LocaleService);
+  // TODO: traer current local y mostrar en span del html
+
   lower = signal('JUAN');
   upper = signal('juan');
   full = signal('JuAn dE diOS');
@@ -28,4 +32,12 @@ export default class BasicPage {
       clearInterval(interval);
     });
   });
+  changeLocale(locale: AvailableLocale) {
+    this.localeService.changeLocale(locale);
+  }
+
+  actualLocale() {
+    this.localeService.currentLocale();
+    console.log(this.actualLocale);
+  }
 }
