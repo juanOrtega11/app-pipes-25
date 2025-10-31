@@ -1,6 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { Card } from '../../components/card/card';
-import { I18nSelectPipe } from '@angular/common';
+import {
+  AsyncPipe,
+  I18nPluralPipe,
+  I18nSelectPipe,
+  KeyValuePipe,
+  SlicePipe,
+} from '@angular/common';
+import { interval, map, tap } from 'rxjs';
 
 const client1 = {
   name: 'Laura Gómez',
@@ -18,7 +25,14 @@ const client2 = {
 
 @Component({
   selector: 'app-uncommon-page',
-  imports: [Card, I18nSelectPipe],
+  imports: [
+    Card,
+    I18nSelectPipe,
+    I18nPluralPipe,
+    SlicePipe,
+    KeyValuePipe,
+    AsyncPipe,
+  ],
   templateUrl: './uncommon-page.html',
 })
 export default class UncommonPage {
@@ -35,4 +49,40 @@ export default class UncommonPage {
     }
     this.client.set(client1);
   }
+
+  // i18n plural
+  clientsMap = signal({
+    '=0': 'no tenemos nungún cliente esperando',
+    '=1': 'tenemos un cliente esperando',
+    other: 'tenemos # clientes esperando',
+  });
+
+  clients = signal([
+    'Juan',
+    'Jesus',
+    'Eduardo',
+    'José',
+    'Felipe',
+    'Antionio',
+    'Arnulfo',
+  ]);
+  deleteClient() {
+    this.clients.update((prev) => prev.slice(1));
+  }
+  profile = {
+    name: 'Juan',
+    age: 26,
+  };
+  //Async pipe
+  promiseValue: Promise<string> = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('Tenemos data en la promesa.');
+      console.log('promesa ended');
+    }, 3500);
+  });
+
+  myObservableTimer = interval(2000).pipe(
+    // map((value) => value + 1),
+    tap((value) => console.log('tap', value))
+  );
 }
